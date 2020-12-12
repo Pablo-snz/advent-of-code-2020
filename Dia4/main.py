@@ -15,15 +15,13 @@ def dia4B(raw_data):
 
     must = ["byr","iyr","eyr","hgt","hcl","ecl","pid"]
     
-    # Unir estas dos lineas para ahorrar iteraciones.
-    fstC = [dic for dic in data if all([key in dic for key in must])]
     return sum([all([validateByr(d['byr']),
             validateIyr(d['iyr']),
             validateEyr(d['eyr']),
             validateHgt(d['hgt']),
             validateHcl(d['hcl']),
             validateEcl(d['ecl']),
-            validatePid(d['pid'])]) for d in fstC])
+            validatePid(d['pid'])]) for d in data if all([key in d for key in must])])
 
 
 def preprocess(raw_data):
