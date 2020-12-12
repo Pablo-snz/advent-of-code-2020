@@ -4,16 +4,7 @@ def dia4A(raw_data):
     
     data = preprocess(raw_data)
 
-    must = [
-            "byr",
-            "iyr",
-            "eyr",
-            "hgt",
-            "hcl",
-            "ecl",
-            "pid"
-           # "cid"
-            ]
+    must = ["byr","iyr","eyr","hgt","hcl","ecl","pid"]
    
     return sum([all([key in dic for key in must]) for dic in data])
 
@@ -22,16 +13,8 @@ def dia4B(raw_data):
 
     data = preprocess(raw_data)
 
-    must = [
-            "byr",
-            "iyr",
-            "eyr",
-            "hgt",
-            "hcl",
-            "ecl",
-            "pid"
-           # "cid"
-            ]
+    must = ["byr","iyr","eyr","hgt","hcl","ecl","pid"]
+    
     # Unir estas dos lineas para ahorrar iteraciones.
     fstC = [dic for dic in data if all([key in dic for key in must])]
     return sum([all([validateByr(d['byr']),
